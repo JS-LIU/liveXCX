@@ -1,0 +1,15 @@
+.owned_course_time{
+  display:flex;
+  flex-direction: row;
+  margin:16rpx 40rpx 0;
+  font-size:24rpx;
+  color:#808080;
+  max-height:70rpx;
+  flex-wrap: wrap;
+}
+.owned_course_time_step_item{
+  padding-left:10rpx;
+}
+.owned_course_time_step_item_end_text{
+  padding-left:10rpx;
+}

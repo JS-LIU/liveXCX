@@ -1,0 +1,87 @@
+@import "../template/courseNameTemp";
+@import "../template/courseTimeTemp.wxss";
+
+/* pages/myCourse/myCourse.wxss */
+.wrap{
+  background:#FAFAFA;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+}
+.content{
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+.owned_course{
+  background:#FFFFFF;
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow:0rpx 6rpx 20rpx 0rpx rgba(225,225,225,0.5);
+}
+.owned_course_btn_list{
+  display:flex;
+  flex-direction: row;
+}
+.owned_course_btn_item{
+  width:158rpx;
+  height:56rpx;
+  border:1rpx solid #000000;
+  border-radius: 29rpx;
+  margin:52rpx 25rpx 46rpx 40rpx;
+  font-size:24rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.course_plan_item{
+  background:#FFFFFF;
+  width:690rpx;
+  height:160rpx;
+  background:#FFFFFF;
+  box-shadow:0rpx 6rpx 20rpx 0rpx rgba(225,225,225,0.5);
+  border-radius:8rpx;
+  margin-top:40rpx;
+}
+.course_plan_item{
+  position:relative;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.course_plan_item_info{
+  display:flex;
+  flex-direction: column;
+  padding:16rpx 0 0 40rpx;
+}
+.course_plan_item_line{
+  position:absolute;
+  width:4rpx;
+  height:32rpx;
+  top:20rpx;
+  left:0rpx;
+  background:#FFC200;
+}
+.course_plan_item_order{
+  font-size:20rpx;
+  color:#808080;
+}
+.course_plan_item_name{
+  font-size:32rpx;
+  color: #000000;
+  margin-top:12rpx;
+}
+.course_plan_item_option{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  font-size:20rpx;
+  color:#808080;
+  margin-right:36rpx;
+}

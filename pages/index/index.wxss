@@ -1,0 +1,83 @@
+@import "../template/courseNameTemp";
+@import "../template/courseTimeTemp.wxss";
+
+.wrap{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#FAFAFA;
+}
+.content{
+  position:relative;
+  z-index: 1;
+}
+.owned_course_list{
+  margin-top:48rpx;
+  width:100%;
+}
+.owned_course{
+  display:flex;
+  flex-direction: column;
+  width:690rpx;
+  height:300rpx;
+  margin:0 auto 32rpx;
+  background: #FFF;
+  box-shadow:0rpx 6rpx 20rpx 0rpx rgba(0,0,0,0.08);
+  border-radius: 8rpx;
+}
+/* .owned_course_title{
+  font-size:32rpx;
+  margin:30rpx 0 0 40rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.owned_course_title_text{
+  padding-left:20rpx;
+} */
+/* .owned_course_time{
+  display:flex;
+  flex-direction: row;
+  margin:16rpx 40rpx 0;
+  font-size:24rpx;
+  color:#808080;
+  max-height:70rpx;
+  flex-wrap: wrap;
+}
+.owned_course_time_step_item{
+  padding-left:10rpx;
+}
+.owned_course_time_step_item_end_text{
+  padding-left:10rpx;
+} */
+.teacher_list{
+  display:flex;
+  flex-direction: row;
+  margin:48rpx 0 0 50rpx;
+}
+.teacher_item{
+  display:flex;
+  flex-direction: row;
+  margin-right:28rpx;
+}
+.teacher_header{
+  width:66rpx;
+  height:66rpx;
+  border:1rpx solid #E8E8E8;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.teacher_info{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:68rpx;
+  overflow: hidden;
+  padding-left:12rpx;
+  font-size:24rpx;
+}
+.teacher_name{
+  color:#808080;
+}

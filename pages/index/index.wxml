@@ -1,0 +1,30 @@
+<import src="../template/courseNameTemp"/>
+<import src="../template/courseTimeTemp"/>
+
+<view class="wrap"></view>
+<view class="content">
+  <scroll-view scroll-y bindscrolltolower="{{updateOwnedCourseList}}" class="owned_course_list">
+    <navigator url="/pages/myCourse/myCourse?id={{ownedCourse.id}}" class="owned_course" wx:for="{{ownedCourseList}}" wx:for-index="i" wx:for-item="ownedCourse" wx:key="i">
+      <template is="course_name" data="{{ownedCourse}}"></template> 
+      <template is="course_time" data="{{ownedCourse}}"></template>
+      <view class="teacher_list">
+        <view class="teacher_item">
+          <image src="{{ownedCourse.teacherInfo.headImgUrl}}" class="teacher_header" mode="aspectFit"></image>
+          <view class="teacher_info">
+            <view>主讲</view>
+            <view class="teacher_name">{{ownedCourse.teacherInfo.teacherName}}</view>
+          </view>
+        </view>
+        <view class="teacher_item">
+          <image src="{{ownedCourse.assistantInfo.headImgUrl}}" class="teacher_header" mode="aspectFit"></image>
+          <view class="teacher_info">
+            <view>助教</view>
+            <view class="teacher_name">{{ownedCourse.assistantInfo.teacherName}}</view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </scroll-view>
+</view>
+
+

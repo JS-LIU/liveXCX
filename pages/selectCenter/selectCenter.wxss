@@ -1,0 +1,13 @@
+/* pages/selectCenter/selectCenter.wxss */
+.swiper_course{
+  height:300rpx;
+}
+.slide-image{
+  padding: 0 8rpx;
+  border-radius:4rpx;
+  width:100%;
+}
+.suject_specify_list{
+  display:flex;
+  flex-direction: row;
+}

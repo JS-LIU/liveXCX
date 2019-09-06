@@ -1,0 +1,27 @@
+<import src="../template/courseNameTemp"/>
+<import src="../template/courseTimeTemp"/>
+
+<view class="wrap"></view>
+<view class="content">
+  <view class="owned_course">
+    <template is="course_name" data="{{ownedCourse}}"></template> 
+    <template is="course_time" data="{{ownedCourse}}"></template>
+    <view class="owned_course_btn_list">
+      <view class="owned_course_btn_item">课前准备</view>
+      <view class="owned_course_btn_item">查看助教</view>
+    </view>  
+  </view>
+  <view wx:for="{{coursePlanItemModuleList}}" wx:for-index="i" wx:for-item="coursePlanItem" wx:key="i" class="course_plan_item">
+    <view class="course_plan_item_info">
+      <view class="course_plan_item_order">
+        <view class="course_plan_item_line"></view>  
+        <view>第{{i+1}}课</view>    
+      </view>    
+      <view class="course_plan_item_name">{{coursePlanItem.name}}</view>
+    </view>
+    <view class="course_plan_item_option">
+      <view class="read_course_ware" bindtap="bindReadCourseWare">查看讲义</view>
+      <view class="comment_homework" bindtap="bindHomeworkComment">查看作业点评</view>
+    </view>
+  </view>
+</view>

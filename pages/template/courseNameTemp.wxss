@@ -1,0 +1,14 @@
+.owned_course_icon{
+  width:36rpx;
+  height:36rpx;
+}
+.owned_course_title{
+  font-size:32rpx;
+  margin:30rpx 0 0 40rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.owned_course_title_text{
+  padding-left:20rpx;
+}

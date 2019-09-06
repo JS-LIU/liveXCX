@@ -1,0 +1,6 @@
+<template name="course_name">
+  <view class="owned_course_title">
+    <image src="{{ownedCourse.type.iconBackground}}" class="owned_course_icon" mode="aspectFill"></image>
+    <view class="owned_course_title_text">{{ownedCourse.courseName}}</view>
+  </view>
+</template>
