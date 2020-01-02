@@ -1,0 +1,4 @@
+<!--pages/showVideo/showVideo.wxml-->
+<view class="show_video" id="J_show_video">
+  <video src="{{src}}" autoplay="true" direction="-90" object-fit="cover" class="show_video_play"></video>
+</view>

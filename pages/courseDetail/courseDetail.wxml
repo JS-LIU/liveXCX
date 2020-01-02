@@ -1,0 +1,58 @@
+<import src="../template/courseNameTemp"/>
+<import src="../template/courseTimeTemp"/>
+<import src="../template/teacherTemp"/> 
+<view>
+  <image src="{{course.bannerImg}}" class="detail_bg" mode="aspectFill"></image>
+</view>
+<view class="course_detail_info">
+  <template is="course_name" data="{{...course}}"></template> 
+  <template is="course_time" data="{{...course}}"></template>
+  <view class="sale_price_info" wx:if="{{versionStatus==2}}">
+    <view class="price">
+      <view class="sale_price">￥{{course.showSalePrice}}</view>
+      <view class="origin_price">￥{{course.showOriginPrice}}</view>
+    </view>
+    <view class="end_time">
+      报名截止时间：{{course.sellEndTime}}
+    </view>    
+  </view>
+  <view class="buy_self_box" wx:if="{{course.suggestGoods.length > 0}}">
+    <span class="buy_self_name_select">
+      {{course.courseName}}
+    </span>
+  </view>
+  <view class="suggest_goods" wx:if="{{course.suggestGoods.length > 0}}">
+    <view class="buy_title">优惠套餐</view>
+    <navigator url="/pages/courseDetail/courseDetail?courseNo={{courseItem.goodNo}}" wx:for="{{course.suggestGoods}}" wx:for-index="i" wx:for-item="courseItem" wx:key="i" class="buy_self_name">
+      {{courseItem.name}}
+    </navigator>
+  </view>
+
+  <view class="teacher_title">授课老师</view>
+  <view class="teacher_list">
+    <template is="teacher_info" data="{{...course.teacherInfo,title:'主讲'}}"></template>
+    <template is="teacher_info" data="{{...course.assistantInfo,title:'助教',teacherName:'1v1辅导'}}"></template>
+  </view>
+  <!-- <view wx:if="{{isLogin}}" class="course_free_box" bindtap="onWatchCourse">
+    <image src="../img/course_video_icon.png" mode="aspectFit" class="course_free_video_icon"></image>
+    <view class="course_free_info">
+      <view class="course_free_info_title">免费试听课程</view>
+      <view class="assistant_name">主讲：{{course.teacherInfo.teacherName}}</view>
+    </view>
+  </view> -->
+  <view class="course_detail">
+    <view class="course_detail_title">课程详情</view>
+    <image src="{{goodDetailImg}}" mode="widthFix" class="good_detail_img" wx:for="{{course.goodDetailList}}" wx:for-index="i" wx:for-item="goodDetailImg" wx:key="i"></image>
+  </view>
+</view>
+<view class="create_order_box">
+  <view class="btn_price_show" wx:if="{{versionStatus==2}}">
+    <view class="btn_sale_price">￥{{course.showSalePrice}}</view>
+    <view class="btn_origin_price">
+      <view>原价</view>
+      <view class="btn_origin_price_line">￥{{course.showOriginPrice}}</view>
+    </view>
+  </view>
+  <navigator wx:if="{{versionStatus==2}}" url="/pages/createOrder/createOrder?goodNo={{course.goodNo}}" class="create_order_btn">{{butDesc}}</navigator>
+  <view wx:if="{{versionStatus==1}}" class="create_order_btn_small" bindtap="onMakeCall">{{butDesc}}</view>
+</view>

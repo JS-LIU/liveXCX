@@ -1,0 +1,9 @@
+<view class="pay_info">
+  
+  <view class="pay_success_pic">
+    <image src="../img/fail_icon.png" mode="aspectFit" class="pay_icon_pic"></image>
+  </view>
+  <view class="pay_title">支付失败</view>
+  <view class="pay_time">支付时间：{{payDate}}</view>
+  <navigator url="/pages/orderList/orderList" class="to_order">查看订单</navigator>
+</view>

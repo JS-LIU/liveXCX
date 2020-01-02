@@ -7,19 +7,23 @@ Page({
    */
   data: {
     imgUrls:[
-      "../img/lunbo.png",
-      "../img/lunbo.png",
-      "../img/lunbo.png"
+      "../img/lunbo_img1.png",
+      "../img/lunbo_img2.png",
+      "../img/lunbo_img3.png"
     ],
     generalCourseType:[],
     courseList:[],
-    isShowSwiper:true
+    isShowSwiper:true,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const appInstance = getApp();
+    appInstance.globalData.isFirstToIndex = false;
+
     courseService.getCourseType().then((list) => {
       this.setData({
         generalCourseType: list
@@ -27,6 +31,7 @@ Page({
       courseService.pagination.to(1);
       this.updateCourseList();
     });
+    
   },
 
   /**
@@ -40,7 +45,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
+    this.setData({
+      generalCourseType: courseService.courseType
+    });
+    courseService.pagination.to(1);
+    this.updateCourseList();
+    
   },
 
   /**
@@ -77,41 +88,49 @@ Page({
   onShareAppMessage: function () {
 
   },
-  bindSelectAll: function (generalCourseTypeItem){
-    return ()=>{
-      this.setData({
-        isShowSwiper:true 
-      })
-      console.log(generalCourseTypeItem);
-      courseService.selectAllSpecifyCourseType(generalCourseTypeItem);
-      
-    }
+  bindSelectAll: function (e){
+    let generalCourseTypeItem = e.currentTarget.dataset.generalCourseTypeItem;
+    courseService.selectAllSpecifyCourseType(generalCourseTypeItem); 
+    this.setData({
+      generalCourseType: courseService.courseType,
+      isShowSwiper: true,
+    });
+    this.onQueryCourseList();
   },
   onQueryCourseList:function(){
-    this.pagination.to(1);
+    courseService.pagination.to(1);
     this.updateCourseList(); 
   },
   updateCourseList:function(){
     courseService.getProductCourse().then((courseList) => {
+      let courseModuleList = [];
       for (let i = 0; i < courseList.length;i++){
         let productModule = courseList[i].getModule.before((repairParam) => {
           repairParam = repairParam || {};
           repairParam.startTime = courseList[i].courseInfo.getStartTimeToShow("unix");
           repairParam.endTime = courseList[i].courseInfo.getEndTimeToShow("unix");
         }).call(courseList[i], {});
-        this.data.courseList.push(productModule)
+        courseModuleList.push(productModule);
       }
+      console.log(courseModuleList);
       this.setData({
-        courseList: this.data.courseList
+        courseList: courseModuleList
       });
     });
   },
-  bindSelectSpecifyType: function (specifyCourseTypeItem) {
+  bindSelectSpecifyType: function (e) {   
+    let specifyCourseTypeItem = e.currentTarget.dataset.speciryCourseItem;
     courseService.toggleSelectSpecifyType(specifyCourseTypeItem);
+    console.log("===",courseService.courseType)
     this.setData({
-      courseTypeList: courseService.courseType,
-      isShowSwiper:false
+      generalCourseType: courseService.courseType,
+      isShowSwiper:false,
     });
     this.onQueryCourseList();
+  },
+ 
+  bindGetMore(){
+    courseService.pagination.nextPage();
+    this.updateCourseList();
   }
 })

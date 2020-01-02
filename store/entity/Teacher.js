@@ -8,6 +8,8 @@ export class Teacher {
         let teacher = teacherInfo||{};
         this.teacherName = this.createTeacherName(teacher.teacherName);
         this.headImgUrl = this.createTeacherHeader(teacher.headImgUrl);
+        this.teacherQrCode = teacher.teacherQrCode;
+        this.wxCode = teacher.wxCode;
     }
     createTeacherName(name){
         if(HB.obj.isNothing(name)){
@@ -18,7 +20,8 @@ export class Teacher {
     }
     createTeacherHeader(headImg) {
         if(HB.obj.isNothing(headImg)){
-            return baseUrl.getBaseUrl() + "/src/img/def_header_img.png"
+          console.log("xxxteacher:==",baseUrl.getBaseUrl() + "../img/def_header_img.png");
+            return baseUrl.getBaseUrl() + "../img/def_header_img.png"
         }else{
             return headImg;
         }
@@ -27,7 +30,9 @@ export class Teacher {
     getModule(){
         return {
             teacherName : this.teacherName,
-            headImgUrl : this.headImgUrl
+            headImgUrl : this.headImgUrl,
+            teacherQrCode : this.teacherQrCode,
+            wxCode: this.wxCode
         }
     }
 }

@@ -56,9 +56,9 @@ export class Login {
             phone:user.phoneNum
         });
     }
-    getRegisterVerifyCode(user){
+    getRegisterVerifyCode(phoneNum){
         return this._getRegisterVerifyCode({
-            phone:user.phoneNum
+          phone: phoneNum
         })
     }
     getLoginVCode(user){

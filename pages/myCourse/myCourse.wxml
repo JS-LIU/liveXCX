@@ -4,11 +4,13 @@
 <view class="wrap"></view>
 <view class="content">
   <view class="owned_course">
-    <template is="course_name" data="{{ownedCourse}}"></template> 
-    <template is="course_time" data="{{ownedCourse}}"></template>
+    <template is="course_name" data="{{...ownedCourse}}"></template> 
+    <template is="course_time" data="{{...ownedCourse}}"></template>
     <view class="owned_course_btn_list">
-      <view class="owned_course_btn_item">课前准备</view>
-      <view class="owned_course_btn_item">查看助教</view>
+      <navigator url="/pages/prepare/prepare" class="owned_course_btn_item">课前准备</navigator>
+      <navigator wx:if="{{ownedCourse.assistantInfo.teacherName != '待分配'}}" url="/pages/assistantInfo/assistantInfo?goodNo={{ownedCourse.goodNo}}" class="owned_course_btn_item">查看助教</navigator>
+      <view class="owned_course_btn_item_no" wx:if="{{ownedCourse.assistantInfo.teacherName === '待分配'}}">暂未分配</view>
+      <view class="owned_course_btn_item" bindtap="onNavigateToStudyReporter">学习报告</view>
     </view>  
   </view>
   <view wx:for="{{coursePlanItemModuleList}}" wx:for-index="i" wx:for-item="coursePlanItem" wx:key="i" class="course_plan_item">
@@ -20,8 +22,14 @@
       <view class="course_plan_item_name">{{coursePlanItem.name}}</view>
     </view>
     <view class="course_plan_item_option">
-      <view class="read_course_ware" bindtap="bindReadCourseWare">查看讲义</view>
-      <view class="comment_homework" bindtap="bindHomeworkComment">查看作业点评</view>
+      <view class="read_course_ware" data-course-plan-item-id="{{coursePlanItem.id}}" bindtap="bindReadCourseWare">
+        <image src="../img/pdf_icon_can_read.png" mode="aspectFit" class="pdf_icon"></image>
+        <view class="course_ware_text">讲义</view> 
+      </view>
+      <view class="comment_homework" data-course-plan-item-id="{{coursePlanItem.id}}"  bindtap="bindHomeworkComment">
+        <image src="{{coursePlanItem.homework.url}}" mode="aspectFit" class="homework_icon"></image>
+        <view class="course_ware_text" style="color:{{coursePlanItem.homework.color}}">{{coursePlanItem.homework.nameText}}</view> 
+      </view>
     </view>
   </view>
 </view>

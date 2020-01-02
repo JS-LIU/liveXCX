@@ -1,0 +1,14 @@
+<view class="wrap"></view>
+<view class="content">
+  <view class="study_reporter_title">您孩子共获得{{totalReport}}份学习报告</view>
+  <view bindtap="onNavigateToReporter" class="reporter_course_item" wx:for="{{reporterCourseList}}" wx:for-index="i" wx:for-item="reporterCourse" wx:key="i" data-upid="{{reporterCourse.userCoursePlanId}}">
+    <view class="reporter_course_left">
+      <image src="../img/study_reporter_course_icon.png" class="reporter_course_icon" mode="aspectFit"></image>
+      <view class="reporter_course_info">
+        <view class="reporter_course_index">第{{reporterCourse.index}}课：</view>
+        <view class="reporter_course_name">{{reporterCourse.sessionName}}</view>
+      </view>
+    </view>
+    <view class="reporter_course_time">{{reporterCourse.classTime}}</view>
+  </view>
+</view>

@@ -40,6 +40,19 @@
   justify-content: center;
   align-items: center;
 }
+.owned_course_btn_item_no{
+  width:158rpx;
+  height:56rpx;
+  border:1rpx solid #E8E8E8;
+  border-radius: 29rpx;
+  margin:52rpx 25rpx 46rpx 40rpx;
+  font-size:24rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#E8E8E8;
+}
 .course_plan_item{
   background:#FFFFFF;
   width:690rpx;
@@ -85,3 +98,20 @@
   color:#808080;
   margin-right:36rpx;
 }
+.read_course_ware,.comment_homework{
+  position:relative;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height:80rpx;
+  margin-left:20rpx;
+}
+.course_ware_text{
+  font-size:20rpx;
+}
+.pdf_icon,.homework_icon{
+  width:41rpx;
+  height:41rpx;
+}
+

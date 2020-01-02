@@ -1,0 +1,38 @@
+/* pages/my/my.wxss */
+@import "../template/lineItem";
+.my_header{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background:#FFF;
+  height:340rpx;
+  position:relative;
+}
+.my_bg{
+  position:absolute;
+  top:0rpx;
+  left:0rpx;
+  width:100%;
+  height:340rpx;
+}
+.user_info{
+  display:flex;
+  flex-direction: column;
+  padding-left:70rpx;
+}
+.user_name{
+  color:#333333;
+  font-size:68rpx;
+}
+.user_grade{
+  font-size:24rpx;
+  color:#979797;
+}
+.user_header{
+  margin-right:48rpx;
+  width:140rpx;
+  height:140rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}

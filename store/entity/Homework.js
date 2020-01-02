@@ -6,10 +6,12 @@ import {courseService} from "../service/CourseService";
 
 export class Homework {
     constructor(homeWorkInfo){
-        this.userHomeworkStatus = homeWorkInfo.userHomeworkStatus;
+        this.homeworkDownloadStatus = homeWorkInfo.homeworkDownloadStatus;
         this.homeworkName = homeWorkInfo.homeworkName;
         this.homeworkUrl = homeWorkInfo.homeworkUrl;
         this.homeworkSavePath = homeWorkInfo.homeworkSavePath;
+        this.type = homeWorkInfo.type;
+        this.materialList = homeWorkInfo.materialList;
         let fileUrlAjax = commonAjax.resource('/file/w/v1.0/:action');
         this._getFileUrl = function(postInfo,user){
             return fileUrlAjax.save({action:'getFileUrl'},postInfo);
@@ -26,44 +28,45 @@ export class Homework {
         return {
             "0":{
                 name:"未提交作业",
+                nameText: "作业",
                 background:"#c7c7c7",
-                url:baseUrl.getBaseUrl() + "/src/img/home_work_cant.png",
-                iconBackground:baseUrl.getBaseUrl() + "/src/img/home_work_cant.png",
+              color: "#c7c7c7",
+                url:baseUrl.getBaseUrl() + "../img/home_work_cant.png",
+                iconBackground:baseUrl.getBaseUrl() + "../img/home_work_cant.png",
                 downLoad:()=>{
                     console.log("尚未上传作业")
                 }
             },
             "1":{
                 name:"作业已提交",
-                background:"#000000",
-                url:baseUrl.getBaseUrl() + "/src/img/home_work_can.png",
-                iconBackground:baseUrl.getBaseUrl() + "/src/img/home_work_can.png",
-                downLoad:()=>{
-                    let downloadPage = window.open(this.baseUrl+this.homeworkUrl);
-                    downloadPage.close();
-                    return new Promise((resolve, reject)=>{
-                        reject()
-                    });
-                }
+                nameText: "作业已提交",
+                background:"#808080",
+              color: "#808080",
+                url:baseUrl.getBaseUrl() + "../img/home_work_can.png",
+                iconBackground:baseUrl.getBaseUrl() + "../img/home_work_can.png",
+              downLoad: () => {
+                return courseService.queryUserHomework(coursePlanItem)
+              }
             },
             "2":{
                 name:"作业已批改",
-                background:"#000000",
-                url:baseUrl.getBaseUrl() + "/src/img/home_work_can.png",
-                iconBackground:baseUrl.getBaseUrl() + "/src/img/home_work_can.png",
-                downLoad:()=>{
-                    // let downloadPage = window.open(this.baseUrl+this.homeworkUrl);
-                    // downloadPage.close()
-                    return new Promise((resolve, reject)=>{
-                        return courseService.queryUserHomework(coursePlanItem)
-                    });
-                }
+                name: "作业已批改",
+                background:"#808080",
+              color: "#808080",
+                url:baseUrl.getBaseUrl() + "../img/home_work_can.png",
+                iconBackground:baseUrl.getBaseUrl() + "../img/home_work_can.png",
+              isModify: true,
+              downLoad: () => {
+                return courseService.queryUserHomework(coursePlanItem)
+              }
             },
             "3":{
                 name:"不可下载",
+                nameText: "作业",
                 background:"#c7c7c7",
-                url:baseUrl.getBaseUrl() + "/src/img/home_work_cant.png",
-                iconBackground:baseUrl.getBaseUrl() + "/src/img/home_work_cant.png",
+              color: "#c7c7c7",
+                url:baseUrl.getBaseUrl() + "../img/home_work_cant.png",
+                iconBackground:baseUrl.getBaseUrl() + "../img/home_work_cant.png",
                 downLoad:()=>{
                     return new Promise((resolve, reject)=>{
                         reject()
@@ -72,9 +75,11 @@ export class Homework {
             },
             "4":{
                 name:"下载作业",
-                background:"#000000",
-                url:baseUrl.getBaseUrl() + "/src/img/home_work_can.png",
-                iconBackground:baseUrl.getBaseUrl() + "/src/img/home_work_can.png",
+                nameText: "作业",
+              background:"#c7c7c7",
+              color: "#c7c7c7",
+                url: baseUrl.getBaseUrl() + "../img/home_work_cant.png",
+              iconBackground: baseUrl.getBaseUrl() + "../img/home_work_cant.png",
                 downLoad:()=>{
                     // let downloadPage = window.open(this.baseUrl+this.homeworkUrl);
                     // downloadPage.close();
@@ -86,6 +91,6 @@ export class Homework {
         }
     }
     getStatusInfo(coursePlanItem,user){
-        return this.statusManager(coursePlanItem,user)[this.userHomeworkStatus];
+      return this.statusManager(coursePlanItem, user)[this.homeworkDownloadStatus];
     }
 }

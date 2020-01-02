@@ -1,0 +1,22 @@
+<view class="wrap"></view>
+<view class="coupon_status_list" >
+  <view class="{{statusItem.selected?'status_item_selected':'status_item'}}" wx:for="{{couponStatusList}}" wx:for-index="i" wx:for-item="statusItem" wx:key="i" bindtap="cutStatus" data-status="{{statusItem.status}}">{{statusItem.name}}</view>
+</view>
+<view class="coupon_content">
+<scroll-view height="100%" scroll-y bindscrolltolower="getMore" class="coupon_list" wx:if="{{couponList.length > 0}}">
+  <view class="coupon_item" wx:for="{{couponList}}" wx:for-index="j" wx:for-item="couponItem" wx:key="j" bindtap="onSelectCoupon" data-account-coupon-no="{{couponItem.accountCouponNo}}" >
+    <image src="../img/coupon_selected.png" wx:if="{{couponItem.selected}}" class="coupon_bg" mode="aspectFill"></image>
+    <image src="../img/coupon_unselected.png" wx:if="{{!couponItem.selected}}" class="coupon_bg" mode="aspectFill"></image>
+    <image src="../img/coupon_cant_use.png" wx:if="{{couponItem.couponStatus == 0}}" class="coupon_bg" mode="aspectFill"></image>
+    <view class="coupon_item_cash">￥{{couponItem.cash / 100}}</view>
+    <view class="coupon_item_info">
+      <view class="coupon_item_type">代金券</view>
+      <view class="coupon_item_end_time">有效期至{{couponItem.endTime}}</view>  
+    </view>
+    <view class="coupon_limit">仅适用于正课</view>
+  </view>
+</scroll-view>
+<view class="no_coupon_img_box" wx:if="{{couponList.length == 0}}">
+  <image src="../img/no_coupon.png" mode="aspectFit" class="no_coupon_img"></image>
+</view>
+</view>

@@ -7,7 +7,9 @@ import {baseUrl, commonAjax} from "../config/config";
 import {TimeManager} from "../entity/TimeManager";
 import {HB} from "../util/HB";
 import {hex_md5} from "../util/md5";
-
+import { CouponStatus} from '../entity/CouponStatus.js';
+import {Coupon} from '../entity/Coupon.js';
+import {Pagination} from '../entity/Pagination.js';
 /**
  * userService
  * {
@@ -23,6 +25,28 @@ import {hex_md5} from "../util/md5";
 class UserService {
     constructor(){
         let ajax = commonAjax.resource('/user/w/v1.0/:action');
+        let miniProgramAjax = commonAjax.resource('/user/x/v1.0/:action');
+        this._bindWechatProgram = function (postInfo) {
+          return miniProgramAjax.save({ action: 'bindWechatProgram'}, postInfo);
+        };
+      this._queryUserAccountCoupon = function (postInfo){
+        return miniProgramAjax.save({ action: 'queryUserAccountCoupon' }, postInfo, { name: "token", value: this.user.token });
+      }
+      this._accountSugInfo = function (postInfo){
+        return miniProgramAjax.save({ action: 'accountSugInfo' }, postInfo, { name: "token", value: this.user.token })
+      }
+      this.couponStatusManager = new CouponStatus();
+      this.pagination = new Pagination(1, 10);
+      this.couponList = [];
+      this._bindUser = function (postInfo){
+        return miniProgramAjax.save({ action: 'bindUser' }, postInfo, { name: "token", value: this.user.token });
+      };
+      this._bindProgramVerifyCode = function (postInfo){
+        return miniProgramAjax.save({ action: 'bindProgramVerifyCode'}, postInfo);
+      };
+      this._updateUserPwd = function (postInfo){
+        return miniProgramAjax.save({ action: 'updateUserPwd' }, postInfo, { name: "token", value: this.user.token });
+      }
         this._login = function(postInfo){
             return ajax.save({action:'login'},postInfo);
         };
@@ -48,13 +72,14 @@ class UserService {
         this._resetPwd = function(postInfo){
             return ajax.save({action:'resetPwd'},postInfo,{name:"token",value:this.token});
         };
-
+        
         this.login = new Login(ajax);
         this.user = new User(ajax);
         this._resetUserInfo = function(postInfo){
             return ajax.save({action:"updateUserInfo"},postInfo,{name:"token",value:this.user.token})
         };
     }
+    
     resetUserInfo(userInfo){
         userInfo.birthday = TimeManager.convertYMDToStampByUnix(userInfo.birthY+"/"+userInfo.birthM+"/"+userInfo.birthD);
         return this._resetUserInfo(userInfo).then((data)=>{
@@ -86,6 +111,32 @@ class UserService {
     //         })
     //     });
     // }
+    updateUserPwd(password){
+      return this._updateUserPwd({
+        pass: hex_md5(password)
+      })
+    }
+    bindWechatProgram(bindInfo){
+      return this._bindWechatProgram({
+        code: bindInfo.code,
+        encryptedData: bindInfo.encryptedData,
+        signature: bindInfo.signature,
+        iv: bindInfo.iv
+      })
+    }
+  accountSugInfo() {
+    return this._accountSugInfo({
+      activityNo: "HD19091000001"
+    });
+  }
+    bindProgramVerifyCode(phoneNum){
+      return this._bindProgramVerifyCode({
+        phone: phoneNum
+      })
+    }
+    bindUser(phoneNum,vcode){
+      return this._bindUser({ phone: phoneNum, verifyCode: vcode});
+    }
     signIn(){
         return this.login.signIn(this.user.getPhoneNum(),this.user.getPassword()).then((data)=>{
             return new Promise((resolve, reject)=>{
@@ -135,8 +186,8 @@ class UserService {
     getPwdVCode(){
         return this.login.getPwdVCode(this.user)
     }
-    getRegisterVCode(){
-        return this.login.getRegisterVerifyCode(this.user).then((data)=>{
+    getRegisterVCode(phoneNum){
+      return this.login.getRegisterVerifyCode(phoneNum).then((data)=>{
             return new Promise((resolve, reject)=>{
                 if(data.code !== 0){
                     reject(data.message);
@@ -154,7 +205,7 @@ class UserService {
             Object.assign(this.user.userInfo,{userName:"小松许"})
         }
         if(this.getUser().userInfo.headImgUrl === ""){
-            Object.assign(this.user.userInfo,{headImgUrl:baseUrl.getBaseUrl()+"/src/img/def_header_img.png"});
+            Object.assign(this.user.userInfo,{headImgUrl:baseUrl.getBaseUrl()+"../img/def_header_img.png"});
         }
         if(!this.getUser().userInfo.sex){
             Object.assign(this.user.userInfo,{sex:1});
@@ -174,6 +225,29 @@ class UserService {
             })
         });
     }
+  queryUserAccountCoupon(){
+    return this._queryUserAccountCoupon({
+      couponStatus: this.couponStatusManager.getCurrentCouponStatus().status,
+      pageNum: this.pagination.pageNum,
+      pageSize: this.pagination.size,
+    }).then((data)=>{
+      console.log(data);
+      let list = [];
+      for(let i= 0 ;i < data.data.list.length;i++){
+        list.push(new Coupon(data.data.list[i]))
+      }
+      if(this.pagination.pageNum === 1){
+        this.couponList = list;
+      }else{
+        this.couponList = this.couponList.concat(list);
+      }
+      return new Promise((resolve,reject)=>{
+        resolve(this.couponList)
+      })
+    });
+  }
+
+
 }
 export const userService = new UserService();
 

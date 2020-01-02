@@ -5,6 +5,7 @@ import {CourseType} from "./CourseType";
 import {LearnStatus} from './LearnStatus';
 import {OwnedCoursePlanItem} from "./OwnedCoursePlanItem";
 import {CourseInfo} from "./CourseInfo";
+import {Teacher} from "./Teacher.js";
 /**
  * 已经购买过的课程
  */
@@ -18,6 +19,11 @@ export class OwnedCourse {
     setDetail(detail){
         this.detail = detail;
         this.coursePlanList = this.getCoursePlanList();
+        this.updateTeacherInfo();
+    }
+    updateTeacherInfo(){
+      this.courseInfo.teacherInfo = new Teacher(this.detail.teacherInfo);
+      this.courseInfo.assistantInfo = new Teacher(this.detail.assistantInfo);
     }
 
     getCoursePlanList(){
@@ -38,6 +44,11 @@ export class OwnedCourse {
     coursePlanItemPaddingCourseName(coursePlanItem){
         coursePlanItem.courseName = this.courseInfo.courseName;
     }
+  findCoursePlanItemByCoursePlanItemId(coursePlanItemId) {
+    return this.coursePlanList.find((coursePlanItem, index) => {
+      return parseInt(coursePlanItem.coursePlanItem.id) === parseInt(coursePlanItemId);
+    });
+  }
     getModule(repairParam){
         let module = Object.assign({},this.courseInfo.getModule(),{
             finishLessonNum:this.finishLessonNum,

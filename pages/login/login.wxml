@@ -1,0 +1,7 @@
+<view class="logo">
+  <image src="../img/logo.svg" mode="aspectFit" class="logo_img"></image>
+</view>
+<view class="wx_login_btn">
+  <button open-type="getUserInfo" bindgetuserinfo="onWxLogin" >登录</button>
+
+</view>

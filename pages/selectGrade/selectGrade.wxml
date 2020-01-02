@@ -1,0 +1,18 @@
+
+<view class="grade_content">
+  <image src="../img/grade_bg.png" mode="aspectFit" class="grade_bg"></image> 
+  <view class="grade_title_box">
+    <view class="grade_title">请选择合适的年级</view>
+    <view class="grade_sub_title">课程推荐用，可更改</view>
+  </view>
+  <view class="grade_info">
+    
+    <view class="grade">年级</view>
+    <view wx:for="{{generalCourseType}}" wx:for-index="i" wx:for-item="generalCourseTypeItem" wx:key="i" wx:if="{{generalCourseTypeItem.name === '年级'}}" class="suject_specify_list_grade">
+      <view bindtap="bindSelectAll" data-general-course-type-item="{{generalCourseTypeItem}}" class="{{generalCourseTypeItem.selected?'specify_item_selected':'specify_item'}}">全部</view>
+      <view wx:for="{{generalCourseTypeItem.specifyCourseTypeList}}" wx:for-index="j" wx:for-item="specifyCourseTypeItem" wx:key="j" bindtap="bindSelectSpecifyType" data-speciry-course-item="{{specifyCourseTypeItem}}" class="{{(specifyCourseTypeItem.selected&&!generalCourseTypeItem.selected)?'specify_item_selected':'specify_item'}}">
+        {{specifyCourseTypeItem.name}}
+      </view>
+    </view>
+  </view>  
+</view>

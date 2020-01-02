@@ -10,7 +10,7 @@ export class User {
         this.password = "";
         this.token = "";
         this.userInfo = {
-            headImgUrl:baseUrl.getBaseUrl() + "/src/img/def_header_img.png",
+            headImgUrl:baseUrl.getBaseUrl() + "../img/def_header_img.png",
             userName:"登录",
         };
         this._getUserInfo = function(postInfo){
@@ -40,7 +40,7 @@ export class User {
     getUserInfo(){
         return this._getUserInfo({}).then((data)=>{
             this.userInfo = data.data;
-            this.userInfo.headImgUrl = (this.userInfo.headImgUrl === "" ? baseUrl.getBaseUrl()+"/src/img/def_header_img.png":this.userInfo.headImgUrl);
+            this.userInfo.headImgUrl = (this.userInfo.headImgUrl === "" ? baseUrl.getBaseUrl()+"../img/def_header_img.png":this.userInfo.headImgUrl);
             return new Promise((resolve, reject)=>{
                 this.userInfo.birthY = TimeManager.timeStampToDate(this.userInfo.birthday,"unix").Y;
                 this.userInfo.birthM = TimeManager.timeStampToDate(this.userInfo.birthday,"unix").M;

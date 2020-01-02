@@ -1,0 +1,2 @@
+<!--pages/studyReporter/studyReporter.wxml-->
+<web-view src="{{url}}"></web-view>

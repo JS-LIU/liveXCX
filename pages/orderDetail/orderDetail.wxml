@@ -1,0 +1,51 @@
+<import src="../template/courseNameTemp"/>
+<import src="../template/courseTimeTemp"/>
+<view class="wrap"></view>
+<view class="order_detail">
+  <view class="order_status">
+    {{order.status}}订单
+  </view>
+  <view class="course_info">
+    <template is="course_name" data="{{...course}}"></template> 
+    <template is="course_time" data="{{...course}}"></template>
+  </view>
+  <view class="pay_info_box">
+    <view class="pay_info_title">付款信息</view>
+    <view class="pay_info">
+      <view class="pay_info_line">
+        <view class="pay_info_line_title">支付状态</view>
+        <view class="pay_info_line_right">{{order.status}}</view>
+      </view>
+      <view class="pay_info_line">
+        <view class="pay_info_line_title">商品金额</view>
+        <view class="pay_info_line_right">￥{{order.sellPrice}}</view>
+      </view>
+      <view class="pay_info_line">
+        <view class="pay_info_line_title">优惠减免</view>
+        <view class="pay_info_line_right">￥-{{order.reducePrice}}</view>
+      </view>
+      <view class="pay_info_line">
+        <view class="pay_info_line_title">实际付款</view>
+        <view class="pay_info_line_right">￥{{order.salePrice}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="pay_info_box">
+    <view class="pay_info_title">付款信息</view>
+    <view class="pay_info">
+      <view class="pay_info_line">
+        <view class="pay_info_line_title">支付方式</view>
+        <view class="pay_info_line_right">{{order.payType}}</view>
+      </view>
+      <view class="pay_info_line">
+        <view class="pay_info_line_title">支付时间</view>
+        <view class="pay_info_line_right">{{order.payTime}}</view>
+      </view>
+      <view class="pay_info_line">
+        <view class="pay_info_line_title">订单编号</view>
+        <view class="pay_info_line_right">{{order.orderNo}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

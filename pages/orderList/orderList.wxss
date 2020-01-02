@@ -1,0 +1,118 @@
+/* pages/orderList/orderList.wxss */
+@import "../template/courseNameTemp";
+@import "../template/courseTimeTemp.wxss";
+@import "../template/teacherTemp.wxss";
+.wrap{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#FAFAFA;
+}
+.order_content{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+}
+.order_list{
+  margin:78rpx 0;
+  width:100%;
+  height:100%;
+  padding-bottom:100rpx;
+}
+.no_order_img_box{
+  margin:78rpx 0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content: center;
+}
+.order_course{
+  position:relative;
+  display:flex;
+  flex-direction: column;
+  background:#FFFFFF;
+  margin-top:32rpx;
+  height:300rpx;
+}
+.enter_btn{
+  position:absolute;
+  width:16rpx;
+  height:28rpx;
+  top:92rpx;
+  right:44rpx;
+}
+.order_status_list{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:2;
+  background:#FFFFFF;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  height:78rpx;
+  padding-left:30rpx;
+}
+.status_item{
+  padding-right:60rpx;
+  font-size:24rpx;
+  color:#979797;
+}
+.status_item_selected{
+  padding-right:60rpx;
+  font-size:26rpx;
+  color:#000000;
+}
+.status_list{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top:66rpx;
+  align-items: baseline;
+}
+.order_price{
+  margin-right:44rpx;
+  color:#FF9D00;
+  font-size:24rpx;
+}
+.order_course_status_item_click{
+  width:172rpx;
+  height:58rpx;
+  margin-left:40rpx;
+  background:#FFC200;
+  font-size:24rpx;
+  color:#FFFFFF;
+  border-radius: 29rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.order_course_status_item{
+  margin-left:40rpx;
+  width:170rpx;
+  height:56rpx;
+  border:1rpx solid #808080;
+  background:#FFFFFF;
+  font-size:24rpx;
+  color:#808080;
+  border-radius: 29rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.status_btn_list{
+  display:flex;
+  flex-direction: row;
+}
+.no_order_img{
+  width:346rpx;
+  height:186rpx;
+  margin-top:200rpx;
+}

@@ -1,0 +1,57 @@
+/* pages/resetMyInfo/resetMyInfo.wxss */
+.wrap{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background:#FAFAFA;
+
+}
+.reset_user_info_list,.address_info{
+  position:relative;  
+  display:flex;
+  flex-direction: column;
+  margin-top:40rpx;
+  background:#FFFFFF;
+  z-index: 1;
+}
+.reset_user_info_item{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  height:66rpx;
+  background:#FFF;
+  padding-left:30rpx;
+  font-size:24rpx;
+}
+.picker{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.reset_user_info_item_title{
+  width:156rpx;
+}
+.save_user_info{
+  position:relative;
+  width:644rpx;
+  height:84rpx;
+  background:#FFC200;
+  border-radius:8rpx;
+  overflow: hidden;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#FFF;
+  margin:60rpx auto 0;
+  font-size:28rpx;
+}
+.address_control{
+  font-size:24rpx;
+  color:#000000;
+  font-weight: 600;
+  padding:40rpx 0 10rpx 30rpx;
+}
+

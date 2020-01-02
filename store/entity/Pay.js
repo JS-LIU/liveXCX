@@ -8,7 +8,7 @@ export class Pay {
         this.payUrl = payInfo[0].payUrl;
     }
     callWxPay(payUrl){
-
+      
     }
 }
 

@@ -1,0 +1,31 @@
+<import src="../template/courseNameTemp"/>
+<import src="../template/courseTimeTemp"/>
+<view class="wrap"></view>
+<view class="order_status_list" >
+  <view class="{{statusItem.selected?'status_item_selected':'status_item'}}" wx:for="{{orderStatusList}}" wx:for-index="i" wx:for-item="statusItem" wx:key="i" bindtap="onChangeStatus" data-status="{{statusItem.status}}">{{statusItem.name}}</view>
+</view>
+<view class="order_content">
+  <scroll-view height="100%" scroll-y bindscrolltolower="getMore" class="order_list" wx:if="{{orderList.length > 0}}">
+    <view class="order_course" wx:for="{{orderList}}" wx:for-index="i" wx:for-item="orderItem" wx:key="i" bindtap="toDetail" data-order-no="{{orderItem.orderNo}}">
+      <image src="../img/enter.png" mode="aspectFit" class="enter_btn"></image>
+      <navigator url="/pages/orderDetail/orderDetail?orderNo={{orderItem.orderNo}}" >
+        <template is="course_name" data="{{...orderItem.orderCourseModule}}"></template> 
+        <template is="course_time" data="{{...orderItem.orderCourseModule}}"></template>
+      </navigator>
+      
+      <view class="status_list">
+        <view class="status_btn_list">
+          <view class="order_course_status_item_click" bindtap="onToPay" wx:if="{{orderItem.status == 3001||orderItem.status ==3005}}" data-order="{{orderItem}}">立即支付</view>
+          <view class="order_course_status_item" bindtap="onCancelOrder" data-order-no="{{orderItem.orderNo}}" wx:if="{{orderItem.status == 3001||orderItem.status ==3005}}">取消订单</view>
+          <view class="order_course_status_item" wx:if="{{orderItem.status == 3002}}">已支付</view>
+          <view class="order_course_status_item" wx:if="{{orderItem.status == 3003}}">已取消</view>
+          <view class="order_course_status_item" wx:if="{{orderItem.status == 3004}}">已过期</view>
+        </view>
+        <view class="order_price">金额：￥{{orderItem.orderCourseModule.showSellPrice}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="no_order_img_box" wx:if="{{orderList.length == 0}}">
+    <image src="../img/no_order.png" mode="aspectFit" class="no_order_img"></image>
+  </view>
+</view>

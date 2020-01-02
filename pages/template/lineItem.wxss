@@ -1,0 +1,28 @@
+.line_item_box{
+  background:#FFF;
+  height:109rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.line_item_left{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon{
+  width:40rpx;
+  height:40rpx;
+  padding-left:62rpx;
+}
+.title{
+  font-size:28rpx;
+  color:#000;
+  padding-left: 14rpx;
+}
+.enter_icon{
+  padding-right:78rpx;
+  width:16rpx;
+  height:28rpx;
+}

@@ -97,7 +97,9 @@ HB.ajax = (function () {
 
   let wxRequest = function (requestInfo, context) {
     let header = {};
-    header[requestInfo.header.name] = requestInfo.header.value;
+    if (requestInfo.header){
+      header[requestInfo.header.name] = requestInfo.header.value;
+    }
     wx.request({
       url: requestInfo.url,
       data: requestInfo.data,
@@ -225,7 +227,14 @@ HB.valid = (function(){
     function checkFormatTime(format,day){
         return day.length === 10;
     }
-
+  function isPoneAvailable(phoneNum) {
+    let myReg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myReg.test(phoneNum)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
     return {
         validNum:validNum,
         trimAllBlank:trimAllBlank,
@@ -234,7 +243,8 @@ HB.valid = (function(){
         parseChinese:parseChinese,
         parseDay:parseDay,
         validPhoneNum:validPhoneNum,
-        addTimeToDay:addTimeToDay
+        addTimeToDay:addTimeToDay,
+      isPoneAvailable: isPoneAvailable
     }
 
 })();

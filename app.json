@@ -1,9 +1,31 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/myCourse/myCourse",
-    "pages/selectCenter/selectCenter"
+    "pages/selectCenter/selectCenter",
+    "pages/courseDetail/courseDetail",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/bindPhoneNum/bindPhoneNum",
+    "pages/register/register",
+    "pages/resetMyInfo/resetMyInfo",
+    "pages/orderList/orderList",
+    "pages/createOrder/createOrder",
+    "pages/orderDetail/orderDetail",
+    "pages/lecture/lecture",
+    "pages/assistantInfo/assistantInfo",
+    "pages/couponList/couponList",
+    "pages/showVideo/showVideo",
+    "pages/selectGrade/selectGrade",
+    "pages/myPrefit/myPrefit",
+    "pages/paySuccess/paySuccess",
+    "pages/payFail/payFail",
+    "pages/questionList/questionList",
+    "pages/protocol/protocol",
+    "pages/prepare/prepare",
+    "pages/showHomework/showHomework",
+    "pages/studyReporter/studyReporter",
+    "pages/studyReporterList/studyReporterList"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,18 +34,26 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#FFC200",
+    "color": "#808080",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "我的课程"
+        "text": "我的课程",
+        "selectedIconPath": "pages/img/my_course_icon_check.png",
+        "iconPath": "pages/img/my_course_icon_uncheck.png"
       },
       {
         "pagePath": "pages/selectCenter/selectCenter",
-        "text": "选课中心"
+        "text": "选课中心",
+        "selectedIconPath": "pages/img/select_center_icon_check.png",
+        "iconPath": "pages/img/select_center_icon_uncheck.png"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+        "selectedIconPath": "pages/img/my_check.png",
+        "iconPath": "pages/img/my_uncheck.png"
       }
     ]
   },

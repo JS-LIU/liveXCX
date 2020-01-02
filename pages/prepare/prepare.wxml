@@ -1,0 +1,88 @@
+<view class="wrap"></view>
+<view class="content">
+  <view class="prepare_header">
+    <view class="prepare_header_bg"></view>
+    <image src="../img/prepare_header_bg.png" mode="aspectFit" class="prepare_header_img"></image>
+  </view>
+  <view class="prepare_step">
+    <view class="prepare_step_1">
+      <view class="prepare_step_title">
+        <view class="prepare_step_num">1</view>
+        <view class="prepare_step_num_text">第一步</view>
+      </view>
+      <view class="prepare_step_content">
+        <view class="prepare_step_content_text">关注公众号，微信搜索“未科编程”关注并绑。</view>
+        <image class="prepare_step_1_img" src="../img/prepare_step_1_img.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="prepare_step_2">
+      <view class="prepare_step_title">
+        <view class="prepare_step_num">2</view>
+        <view class="prepare_step_num_text">第二步</view>
+      </view>
+      <view class="prepare_step_content">
+        <view class="prepare_step_content_text">下载客户端，登录网站www.vcode.vip点击软件下载，下载对应客户端。</view>
+        <image class="prepare_step_2_img" src="../img/prepare_step_2_img.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="prepare_step_3">
+      <view class="prepare_step_title">
+        <view class="prepare_step_num">3</view>
+        <view class="prepare_step_num_text">第三步</view>
+      </view>
+      <view class="prepare_step_content">
+        <view class="prepare_step_content_text">分配助教老师后添加助教老师微信，进入班级群。</view>
+        <image class="prepare_step_3_img" src="../img/prepare_step_3_img.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="prepare_step_4">
+      <view class="prepare_step_title">
+        <view class="prepare_step_num">4</view>
+        <view class="prepare_step_num_text">第四步</view>
+      </view>
+      <view class="prepare_step_content_4">
+        <view class="prepare_step_content_text">等待开课。</view>
+        <image class="prepare_step_4_img" src="../img/prepare_step_4_img.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  <view class="prepare_question_title">
+    <image src="../img/question_icon.png" mode="aspectFit" class="prepare_question_img"></image>
+    <view class="prepare_question_text">常见问题</view>
+  </view>
+  <view class="prepare_question_list_box">
+    <view class="prepare_question_item_title">
+      1.上课工具：
+    </view>
+    <view class="prepare_question_item_content">
+      笔记本电脑或者台式机，win7以上操作系统（不支持XP系统），macOS10.13版本以上
+    </view>
+     <view class="prepare_question_item_title">
+      2.教室开放：
+    </view>
+    <view class="prepare_question_item_content">
+      开课前20分钟在线教室开放，可以提前进入教室在讨论区与老师同学互动交流
+    </view>
+    <view class="prepare_question_item_title">
+      3.错过直播：
+    </view>
+    <view class="prepare_question_item_content">
+      课程结束后支持无限次课程回放，同时助教1对1技术指导
+    </view>
+     <view class="prepare_question_item_title">
+      4.关注公众号：
+    </view>
+    <view class="prepare_question_item_content">
+      在微信中搜索并关注“未科编程网校”公众号，用于查看孩子作品和点评等通知
+
+    </view>
+     <view class="prepare_question_item_title">
+      5.遇到问题：
+    </view>
+    <view class="prepare_question_item_content">
+      购课前，拨打客服电话400-621-6161购课后，助教会为您1对1解决
+    </view>
+  </view>
+</view>
+
+

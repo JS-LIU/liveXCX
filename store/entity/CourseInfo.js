@@ -8,11 +8,12 @@ import {HB} from "../util/HB";
  */
 export class CourseInfo {
     constructor(courseInfo){
+        this.goodNo = courseInfo.goodNo;
         this.id = courseInfo.id;
         this.teacherInfo = new Teacher(courseInfo.teacherInfo);
         this.assistantInfo = new Teacher(courseInfo.assistantInfo);
         this.type = new CourseType(courseInfo.type);
-        this.courseName = courseInfo.courseName || courseInfo.name;
+        this.courseName = courseInfo.courseName || courseInfo.name || courseInfo.goodName;
         this.timeList = this.getTimeList(courseInfo.timeList);
         this.startTime = courseInfo.startTime;
         this.endTime = courseInfo.endTime;
@@ -40,7 +41,7 @@ export class CourseInfo {
     }
     getModule(){
         return {
-            id:this.id,
+            goodNo:this.goodNo,
             courseName : this.courseName,
             timeList : this.timeList,
             startTime : this.startTime,

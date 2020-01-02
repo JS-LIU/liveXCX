@@ -1,0 +1,8 @@
+<view class="pay_info">
+  <view class="pay_success_pic">
+    <image src="../img/success_icon.png" mode="aspectFit" class="pay_icon_pic"></image>
+  </view>
+  <view class="pay_title">支付成功</view>
+  <view class="pay_time">支付时间：{{payDate}}</view>
+  <view class="to_my_course" bindtap="toIndex">查看课程</view>
+</view>

@@ -1,13 +1,106 @@
 /* pages/selectCenter/selectCenter.wxss */
+@import "../template/courseNameTemp";
+@import "../template/courseTimeTemp.wxss";
+@import "../template/teacherTemp.wxss";
 .swiper_course{
   height:300rpx;
+  margin-top:44rpx;
 }
 .slide-image{
   padding: 0 8rpx;
   border-radius:4rpx;
   width:100%;
+  height:100%;
+}
+
+.select_option_list{
+  height:180rpx;
+  padding-left:30rpx;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size:32rpx;
+  border-bottom:1rpx solid #E8E8E8;
 }
 .suject_specify_list{
   display:flex;
   flex-direction: row;
 }
+.suject_specify_list_grade{
+  display:flex;
+  flex-direction: row;
+  width:750rpx;
+  overflow-x: auto;
+}
+.specify_item{
+  font-size:32rpx;
+  margin-right:58rpx;
+  border-bottom:6rpx solid #FFC200;
+}
+.specify_item_no{
+  font-size:32rpx;
+  margin-right:58rpx;
+  color:#979797;
+}
+.course_list{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom:200rpx;
+}
+.course_item{
+  width:690rpx;
+  height:360rpx;
+  background:#FFFFFF;
+  box-shadow:0 6rpx 20rpx 0 rgba(0,0,0,0.08);
+  border-radius:8rpx;
+  border:1rpx solid #E8E8E8;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top:40rpx;
+
+}
+.course_item_top{
+  height:280rpx;
+}
+.select_course_wrap{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.teacher_list{
+  display:flex;
+  flex-direction: row;
+  margin:48rpx 0 0 50rpx;
+}
+.course_item_bottom{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height:80rpx;
+  background:#FAFAFA;
+  border-top:1rpx solid #E8E8E8;
+}
+.total_course_num{
+  padding-left:48rpx;
+  font-size:24rpx;
+  color:#808080;
+}
+.sale_price{
+  padding-right:36rpx;
+  color:#FFC200;
+  font-size:36rpx;
+}
+.grade_list{
+  display:flex;
+  flex-direction: row;
+  width:1850rpx;
+}
+.grade_list{
+  display: flex;
+}
+

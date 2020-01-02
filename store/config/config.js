@@ -9,7 +9,9 @@ commonAjax.config({
   // baseUrl: "https://huipay.com/huibeiwater"
   // baseUrl:"http://123.57.161.212:9931/huibeiwater"
   // baseUrl: "http://192.168.1.83:9931/huibeiwater"
-  baseUrl: "https://api-test.sscoding.com/api"
+  // baseUrl: "http://api-test.sscoding.com/api",
+  // baseUrl:"https://api-test.vcode.vip/api",
+  baseUrl: "https://api.vcode.vip/api"
 });
 class BaseUrl {
     constructor() {

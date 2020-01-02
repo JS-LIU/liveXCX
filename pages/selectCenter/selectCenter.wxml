@@ -1,25 +1,52 @@
-<view class="select_grade_btn">
-  选择年级
-</view>
-<view class="select_course_specify">
-  <view wx:for="{{generalCourseType}}" wx:for-index="i" wx:for-item="generalCourseTypeItem" wx:key="i" wx:if="{{generalCourseTypeItem.name === '学科'}}" class="suject_specify_list">
-    <view bindtap="bindSelectAll(generalCourseTypeItem)">全部</view>
-    <view wx:for="{{generalCourseTypeItem.specifyCourseTypeList}}" wx:for-index="j" wx:for-item="specifyCourseTypeItem" wx:key="j" bindtap="bindSelectSpecifyType(specifyCourseTypeItem)">
-      {{specifyCourseTypeItem.name}}
+<import src="../template/courseNameTemp"/>
+<import src="../template/courseTimeTemp"/>
+<import src="../template/teacherTemp"/>
+<view class="select_course_wrap">
+  <view class="select_option_list">
+    <view class="grade_list">
+      <navigator url="/pages/selectGrade/selectGrade" wx:for="{{generalCourseType}}" wx:for-index="i" wx:for-item="generalCourseTypeItem" wx:key="i" wx:if="{{generalCourseTypeItem.name === '年级'}}" class="suject_specify_list_grade">
+        <view wx:if="{{specifyCourseTypeItem.selected&&!generalCourseTypeItem.selected}}" wx:for="{{generalCourseTypeItem.specifyCourseTypeList}}" wx:for-index="j" wx:for-item="specifyCourseTypeItem" wx:key="j" bindtap="bindSelectSpecifyType" data-speciry-course-item="{{specifyCourseTypeItem}}">
+          {{specifyCourseTypeItem.name}}
+        </view>
+        <view wx:if="{{generalCourseTypeItem.selected}}" >
+          选择年级
+        </view>
+      </navigator>
+    </view>
+    <view class="select_course_specify">  
+      <view wx:for="{{generalCourseType}}" wx:for-index="i" wx:for-item="generalCourseTypeItem" wx:key="i" wx:if="{{generalCourseTypeItem.name === '学科'}}" class="suject_specify_list">
+        <view bindtap="bindSelectAll" data-general-course-type-item="{{generalCourseTypeItem}}" class="{{generalCourseTypeItem.selected?'specify_item':'specify_item_no'}}">全部</view>
+        <view wx:for="{{generalCourseTypeItem.specifyCourseTypeList}}" wx:for-index="j" wx:for-item="specifyCourseTypeItem" wx:key="j" bindtap="bindSelectSpecifyType" data-speciry-course-item="{{specifyCourseTypeItem}}" class="{{!generalCourseTypeItem.selected && specifyCourseTypeItem.selected?'specify_item':'specify_item_no'}}">
+          {{specifyCourseTypeItem.name}}
+        </view>
+      </view>
     </view>
   </view>
-</view>
-<scroll-view scroll-y style="height: 200px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-  <swiper wx:if="{{isShowSwiper}}" class="swiper_course" autoplay="true" circular="true" previous-margin="14rpx" next-margin="14rpx" interval="5000" >
-      <block wx:for="{{imgUrls}}" wx:for-index="i" wx:for-item="img" wx:key="i" >
-        <swiper-item>
-          <image src="{{img}}" class="slide-image" mode="center" />
-        </swiper-item>
-      </block>
-  </swiper>
-  <view class="course_list">
-    <view class="course_item" wx:for="{{courseList}}" wx:for-index="i" wx:for-item="couresItem" wx:key="i">
-      {{couresItem.courseName}}
+  
+  <scroll-view scroll-y style="height: 100%;" bindscrolltolower="bindGetMore" scroll-top="{{scrollTop}}">
+    <swiper wx:if="{{isShowSwiper}}" class="swiper_course" autoplay="true" circular="true" previous-margin="14rpx" next-margin="14rpx" interval="5000" >
+        <block wx:for="{{imgUrls}}" wx:for-index="i" wx:for-item="img" wx:key="i" >
+          <swiper-item>
+            <image src="{{img}}" class="slide-image" mode="aspectFit" />
+          </swiper-item>
+        </block>
+    </swiper>
+    <view class="course_list">
+      <navigator url="/pages/courseDetail/courseDetail?courseNo={{courseItem.goodNo}}" class="course_item" wx:for="{{courseList}}" wx:for-index="i" wx:for-item="courseItem" wx:key="i">
+        <view class="course_item_top">
+          <template is="course_name" data="{{...courseItem}}"></template> 
+          <template is="course_time" data="{{...courseItem}}"></template>
+          <view class="teacher_list">
+            <template is="teacher_info" data="{{...courseItem.teacherInfo,title:'主讲'}}"></template>    
+            <template is="teacher_info" data="{{...courseItem.assistantInfo,title:'助教',teacherName:'1v1辅导'}}"></template>    
+          </view>
+        </view>
+        <view class="course_item_bottom">
+          <view class="total_course_num">共{{courseItem.totalLessonNum}}课次</view>
+          <view class="sale_price">￥{{courseItem.salePrice/100}}</view>
+        </view>
+      </navigator>
     </view>
-  </view>
-</scroll-view>
+  </scroll-view>
+</view>
+

@@ -1,0 +1,21 @@
+<!--pages/my/my.wxml-->
+<import src="../template/lineItem"/>
+<view class="my_header" wx:if="{{!isShowLogin}}">
+  <image src="../img/my_bg.png" mode="aspectFill" class="my_bg"></image>
+  <view class="user_info">
+    <view class="user_name">{{userInfo.userName}}</view>
+    <view class="user_grade">{{userInfo.grade}}</view>
+  </view>
+  <image mode="aspectFit" src="{{userInfo.headImgUrl}}" class="user_header"></image>
+</view>
+<navigator url="/pages/login/login" class="my_header" wx:if="{{isShowLogin}}">
+  <image src="../img/my_bg.png" mode="aspectFill" class="my_bg"></image>
+  <view class="user_info">
+    <view class="user_name">登录/注册</view>
+  </view>
+  <image mode="aspectFit" src="{{userInfo.headImgUrl}}" class="user_header"></image>
+</navigator>
+<view wx:for="{{myItemList}}" wx:for-index="i" wx:for-item="myItem" wx:key="i">
+  <template is="line_item" data="{{...myItem}}"></template>
+</view>
+

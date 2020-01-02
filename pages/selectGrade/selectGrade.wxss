@@ -1,0 +1,79 @@
+.grade_title_box{
+  height:188rpx;
+  width:684rpx;
+  margin:0 auto;
+  border-bottom:1rpx solid #E8E8E8;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.grade_content{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.grade_bg{
+  position:absolute;
+  width:640rpx;
+  height:236rpx;
+  bottom:88rpx;
+  left:55rpx;
+}
+.grade_title{
+  font-size:36rpx;
+  color:#000000;
+}
+.grade_sub_title{
+  color:#979797;
+  font-size:24rpx;
+  padding-top:18rpx;
+}
+.grade{
+  font-size:32rpx;
+  font-weight:600;
+}
+.grade_info{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:550rpx;
+  margin:46rpx auto;
+  position:relative;
+}
+.suject_specify_list_grade{
+  width:420rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.specify_item_selected{
+  width:190rpx;
+  height:62rpx;
+  border:1rpx solid #FFC200;
+  border-radius: 32rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size:32rpx;
+  color:#FFC200;
+  margin-bottom:30rpx;
+}
+.specify_item{
+  width:190rpx;
+  height:62rpx;
+  border:1rpx solid #E8E8E8;
+  border-radius: 32rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size:32rpx;
+  color:#979797;
+  margin-bottom:30rpx;
+}

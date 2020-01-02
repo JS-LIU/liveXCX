@@ -1,0 +1,85 @@
+/* pages/login/login.wxss */
+.logo{
+  display:flex;
+  flex-basis: row;
+  width:312rpx;
+  margin:174rpx auto 0;
+  
+}
+.logo_img{
+  width:312rpx;
+  height:84rpx;
+}
+.login{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:160rpx;
+}
+.input_phone_num_box{
+  width:642rpx;
+  height:82rpx;
+  border:1rpx solid #E8E8E8;
+  border-radius:8rpx;
+  overflow: hidden;
+}
+.input_phone_num,.input_phone_vcode{
+  padding-left:36rpx;
+  height:100%;
+  width:100%;
+  font-size:28rpx;
+}
+.input_phone_vcode_line{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top:40rpx;
+  width:644rpx;
+}
+.input_phone_vcode_box{
+  width:286rpx;
+  height:82rpx;
+  border:1rpx solid #E8E8E8;
+  border-radius:8rpx;
+  overflow: hidden;
+}
+.get_code_btn{
+  width:288rpx;
+  height:84rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  background:#FFC200;
+  color:#FFF;
+  font-size:28rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.login_btn{
+  width:644rpx;
+  height:84rpx;
+  border-radius: 8rpx;
+  margin:60rpx auto 0;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size:28rpx;
+  color:#FFF;
+  background:#FFC200;
+}
+.cut_login_way{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:644rpx;
+  margin:40rpx auto;
+  font-size:24rpx;
+  color:#808080;
+}
+.wx_login_btn{
+  margin-top:300rpx;
+  width:644rpx;
+  margin:300rpx auto;
+}

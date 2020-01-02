@@ -1,0 +1,9 @@
+<template name="line_item">
+  <navigator url="{{link}}" class="line_item_box">
+    <view class="line_item_left">
+      <image src="{{img}}" mode="aspectFit" class="icon"></image>
+      <view class="title">{{title}}</view>
+    </view>
+    <image src="../img/enter.png" mode="aspectFit" class="enter_icon"></image>
+  </navigator>
+</template>

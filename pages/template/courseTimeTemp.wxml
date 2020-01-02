@@ -1,9 +1,9 @@
 <template name="course_time">
   <view class="owned_course_time">
-    <view>{{ownedCourse.startTime}}</view>
+    <view>{{startTime}}</view>
     <view>--</view>
-    <view>{{ownedCourse.endTime}}</view>
-    <view wx:for="{{ownedCourse.timeStep}}" wx:for-index="j" wx:for-item="week" wx:key="j" class="owned_course_time_step_item">
+    <view>{{endTime}}</view>
+    <view wx:for="{{timeList}}" wx:for-index="j" wx:for-item="week" wx:key="j" class="owned_course_time_step_item">
       每周{{week.week}}{{week.periodStartTime}}
     </view>
     <view class="owned_course_time_step_item_end_text">开课</view>

@@ -1,0 +1,25 @@
+<view class="logo">
+  <image src="../img/logo.svg" mode="aspectFit" class="logo_img"></image>
+</view>
+<view class="login">
+  <view class="input_phone_num_box">
+    <input placeholder="输入绑定的手机号" 
+    confirm-type="done"
+    type="number"  
+    bindinput="onInputPhoneNum"
+    class="input_phone_num"></input>
+  </view>
+  <view class="input_phone_vcode_line">
+    <view class="input_phone_vcode_box">
+      <input placeholder="请输入验证码" 
+      confirm-type="done"
+      type="number" 
+      bindinput="onInputVCode"
+      class="input_phone_vcode"></input>
+    </view>
+    
+    <view class="get_code_btn" style="{{vCodeStyle}}" bindtap="onGetVCode">{{vCodeText}}</view>
+  </view>
+</view>
+<view class="login_btn" bindtap="onBindPhoneNum">绑定手机号</view>
+

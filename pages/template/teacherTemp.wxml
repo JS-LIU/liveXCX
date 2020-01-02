@@ -1,0 +1,9 @@
+<template name="teacher_info">
+  <view class="teacher_item">
+    <image src="{{headImgUrl}}" class="teacher_header" mode="aspectFit"></image>
+    <view class="teacher_info">
+      <view>{{title}}</view>
+      <view class="teacher_name">{{teacherName}}</view>
+    </view>
+  </view>
+</template>

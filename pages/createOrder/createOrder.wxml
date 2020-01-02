@@ -1,0 +1,90 @@
+<import src="../template/courseTimeTemp"/>
+<view class="wrap"></view>
+<view class="shadow" wx:if="{{isShowShadow}}"></view>
+<view class="order_info">
+  <view class="order_info_title">课程信息</view>
+  <view class="course_info_box">
+    <view class="course_item">商品名称：{{orderCourse.courseName}}</view>
+    <template is="course_time" data="{{...orderCourse}}"></template>
+    <view class="course_item">授课老师：{{orderCourse.teacherInfo.teacherName}}</view>
+    <view class="course_sale_price">
+      商品价格：￥{{orderCourse.showSellPrice}}
+    </view>
+  </view>
+  <view class="selected_coupon_list">
+    <view class="show_coupon_list" bindtap="{{canUseCouponList.length == 0?'':'onShowCouponList'}}">
+      <view class="show_coupon_title">优惠券</view>
+      <view class="selected_coupon_enter">
+        <view wx:if="{{canUseCouponList.length == 0}}">暂无可用优惠券</view>
+        <image src="../img/enter.png" mode="aspectFit" class="show_coupon_btn"></image>
+      </view>
+    </view>
+    <view class="use_coupon_list" wx:if="{{couponList.length > 0}}">
+      <view wx:for="{{useCouponList}}" wx:for-index="i" wx:for-item="couponItem" wx:key="i" wx:if="{{couponItem.selected}}" class="coupon_item">
+        <image src="../img/coupon_selected.png" wx:if="{{couponItem.selected}}" class="coupon_bg"></image>
+        <view class="coupon_item_cash">￥{{couponItem.cash / 100}}</view>
+        <view class="coupon_item_info">
+          <view class="coupon_item_type">代金券</view>
+          <view class="coupon_item_end_time">有效期至{{couponItem.endTime}}</view>  
+        </view>
+        <view class="coupon_limit">仅适用于正课</view>
+      </view>
+    </view>
+    </view>
+    <view class="use_balance_box" wx:if="{{balance > 0}}">
+      <view class="can_use_balance">
+        使用余额：{{balance}}
+      </view>
+      <switch checked bindchange="onToggleUseBalance" class="switch_use_balance"/>
+    </view>
+    <view class="order_detail">
+      <view class="order_detail_line">
+        <view>商品金额：</view><view class="order_detail_price">￥{{orderCourse.showSellPrice}}</view>
+      </view>
+      <view class="order_detail_line">
+        <view>优惠券减免：</view><view class="order_detail_price">￥{{couponReduceCash}}</view>
+      </view>
+      <view class="order_detail_line">
+        <view>合计：</view><view class="order_detail_price">￥{{realPay}}</view>
+      </view>
+      <view class="real_pay">需支付：￥{{realPay}}</view>
+    </view>
+    <view class="order_over_time">
+      <view>报名预约成功，请在</view>
+      <view class="count_down">{{countDown}}</view>
+      <view>内完成付款</view>
+    </view>
+    <view class="select_pay_type">
+      <view class="select_pay_type_left">
+        <image src="../img/wechat_select_icon.png" mode="aspectFit" class="wechat_select_icon"></image>
+        <view>微信支付</view>
+      </view>
+      
+      <image src="../img/pay_type_selected.png" mode="aspectFit"  class="select_pay_type_right"></image>
+    </view>
+</view>
+
+<view class="pay_btn">
+  <view bindtap="onCancelOrder" class="cancel_order">取消订单</view>
+  <view bindtap="onPayOrder" class="pay_order">确认支付</view> 
+</view>
+<view class="coupon_list" wx:if="{{showCouponList}}">
+  
+  <view class="coupon_list_title" bindtap="onHideCouponList">
+    <view></view>
+    <view class="coupon_list_title_text">选择优惠券</view>
+    <view class="hide_coupon_list">关闭</view>
+  </view>
+  <view class="coupon_item" wx:for="{{couponList}}" wx:for-index="j" wx:for-item="couponItem" wx:key="j" bindtap="onSelectCoupon" data-account-coupon-no="{{couponItem.accountCouponNo}}">
+    <image src="../img/coupon_selected.png" wx:if="{{couponItem.selected}}" class="coupon_bg" mode="aspectFill"></image>
+    <image src="../img/coupon_unselected.png" wx:if="{{!couponItem.selected}}" class="coupon_bg" mode="aspectFill"></image>
+    <image src="../img/coupon_cant_use.png" wx:if="{{couponItem.couponStatus == 0}}" class="coupon_bg" mode="aspectFill"></image>
+    <view class="coupon_item_cash">￥{{couponItem.cash / 100}}</view>
+    <view class="coupon_item_info">
+      <view class="coupon_item_type">代金券</view>
+      <view class="coupon_item_end_time">有效期至{{couponItem.endTime}}</view>  
+    </view>
+    <view class="coupon_limit">仅适用于正课</view>
+  </view>
+</view>
+

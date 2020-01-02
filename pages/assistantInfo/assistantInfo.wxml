@@ -1,0 +1,16 @@
+<image src="../img/teacher_info_bg.png" mode="aspectFill" class="assistant_info_bg"></image>
+<view class="assistant_content">
+  <view class="assistant_info">
+    <view class="assistant_header">
+      <image src="{{assistantInfo.headImgUrl}}" mode="aspectFit" class="assistant_info_header"></image>
+    </view>
+    <view class="assistant_name_box">
+      <view class="assistant_name">{{assistantInfo.teacherName}}</view>
+      <view class="assistant_declaration">我将全程辅导孩子学习，反馈孩子的学习情况</view>
+    </view>
+  </view>
+  <view class="assistant_qr_code">
+    <image src="{{assistantInfo.teacherQrCode}}" class="assistant_info_qrcode" mode="aspectFit"></image>
+  </view>
+  <view class="assistant_qr_code_text">扫一扫上面二维码图案，添加我的微信</view>
+</view>

@@ -44,6 +44,7 @@ export class ProductCourse {
         this.salePrice = detail.salePrice;
         this.suggestGoods = detail.suggestGoods;
         this.videoId = detail.videoId;
+      this.bannerImg = detail.bannerImg;
     }
     createOutlineListByJson(outlineList){
         let list = [];
@@ -82,6 +83,7 @@ export class ProductCourse {
                 salePrice:this.salePrice,
                 suggestGoods:this.suggestGoods,
                 videoId:this.videoId,
+                bannerImg:this.bannerImg
             });
         }
         return module;

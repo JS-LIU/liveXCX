@@ -28,10 +28,10 @@ export class CourseType {
               iconBackground: baseUrl.getBaseUrl() + "../img/icon_c.png"
             },
             "3":{
-                name:"n",
+                name:"s",
                 background:"#b178c8",
               url: baseUrl.getBaseUrl() + "../img/product_course_noi_header_bg.png",
-              iconBackground: baseUrl.getBaseUrl() + "../img/icon_noip.png"
+              iconBackground: baseUrl.getBaseUrl() + "../img/icon_s.png"
             }
         }
     }

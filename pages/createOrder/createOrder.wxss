@@ -1,0 +1,309 @@
+/* pages/createOrder/createOrder.wxss */
+@import "../template/courseTimeTemp.wxss";
+.wrap{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background:#FAFAFA;
+  z-index:0;
+}
+.order_info{
+  position:fixed;
+  z-index: 1;
+  top:0;
+  width:100%;
+  left:0;
+  bottom:110rpx;
+}
+.order_info_title{
+  margin:30rpx 0 0 30rpx;
+  font-size:28rpx;
+  color:#000000;
+  font-weight:400;
+}
+.course_info_box{
+  display:flex;
+  flex-direction: column;
+
+  width:688rpx;
+  margin:20rpx auto 0;
+  background:#FFFFFF;
+  border-radius:8rpx;
+  border:1rpx solid #E8E8E8;
+}
+
+.course_item{
+  margin:16rpx 40rpx 0;
+  font-size:24rpx;
+  color:#808080;
+  max-height:70rpx;
+  flex-wrap: wrap;
+}
+.course_sale_price{
+  margin:32rpx 40rpx 0 0;
+  padding-left:40rpx;
+  border-top:1rpx solid #E8E8E8;
+  height:86rpx;
+  line-height:86rpx;
+}
+.selected_coupon_list{
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 396rpx;
+  min-height:88rpx;
+  overflow: auto;
+}
+.show_coupon_list{
+  width: 690rpx;
+  height: 88rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  border: 1px solid #E8E8E8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index:2;
+
+}
+.show_coupon_title{
+  padding-left:28rpx;
+  font-size:28rpx;
+  color:#000;
+  font-weight: 400;
+}
+.selected_coupon_enter{
+  padding-right:34rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  font-size:24rpx;
+  color:#808080;
+}
+.show_coupon_btn{
+  width:16rpx;
+  height:28rpx;
+  padding-left:20rpx;
+}
+.use_coupon_list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  width: 692rpx;
+  border-left: 1rpx solid #E8E8E8;
+  border-right: 1rpx solid #E8E8E8;
+  border-bottom: 1rpx solid #E8E8E8;
+  border-radius: 8rpx;
+  position: relative;
+  margin-top: 73rpx;
+  padding-top:20rpx;
+}
+.coupon_item{
+  position:relative;
+  margin:20rpx auto;
+  width:600rpx;
+  height:164rpx;
+}
+.coupon_bg{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.coupon_item_cash{
+  position:absolute;
+  color:#FF6458;
+  font-size:54rpx;
+  left:36rpx;
+  top:20rpx;
+}
+.coupon_item_info{
+  position:absolute;
+  left:36rpx;
+  top:80rpx;
+  font-size:24rpx;
+  color:#979797;
+  display:flex;
+  flex-direction: row;
+}
+.coupon_item_end_time{
+  padding-left:50rpx;
+}
+.coupon_limit{
+  position: absolute;
+  bottom: 3rpx;
+  height: 34rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 22rpx;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+  background: #E8E8E8;
+  color: #979797;
+  font-size: 20rpx;
+  left: 3rpx;
+  right: 3rpx;
+}
+.use_balance_box{
+  width:690rpx;
+  height:88rpx;
+  background:#FFFFFF;
+  border-radius:8rpx;
+  border:1px solid #E8E8E8;
+  margin:40rpx auto 0;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.can_use_balance{
+  padding-left:28rpx;
+}
+.switch_use_balance{
+  padding-right:38rpx;
+}
+.order_detail{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right:30rpx;
+  margin-top:40rpx;
+  font-size:24rpx;
+  color:#808080;
+  line-height:38rpx;
+}
+.pay_btn{
+  position:fixed;
+
+  display:flex;
+  flex-direction: row;
+  z-index: 2;
+  width:100%;
+  height:110rpx;
+  bottom:0rpx;
+}
+.cancel_order{
+  flex:1;
+  background:#FFF;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size:40rpx;
+  color:#979797;
+  height:100%;
+}
+.pay_order{
+  width:460rpx;
+  height:100%;
+  background:#FFC200;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size:40rpx;
+  color:#FFF;
+}
+.coupon_list{
+  position:fixed;
+  z-index: 3;
+  width:100%;
+  max-height:640rpx;
+  overflow-y:auto; 
+  bottom:0rpx;
+  box-shadow:0rpx -6rpx 20rpx 0rpx rgba(225,225,225,0.5);
+  border-radius:8rpx 8rpx 0rpx 0rpx;
+  border:1rpx solid #E8E8E8;
+  background:#FFF;
+}
+.coupon_list_title{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height:96rpx;
+  width:100%;
+  
+}
+.coupon_list_title_text{
+  font-size:28rpx;
+  color:#000000;
+  font-weight:600;
+}
+.hide_coupon_list{
+  font-size:28rpx;
+  color:#808080;
+  padding-right:28rpx;
+}
+.order_detail_line{
+  display:flex;
+}
+.order_detail_price{
+  width:100rpx;
+  display:flex;
+  justify-content: flex-end;
+}
+.real_pay{
+  margin-top:28rpx;
+  font-size:28rpx;
+  color:#000000;
+}
+.count_down{
+  color:#FF6458;
+  font-size:24rpx;
+}
+.order_over_time{
+  font-size:24rpx;
+  color:#808080;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding:18rpx 30rpx 0 0;
+}
+.select_pay_type{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size:28rpx;
+  color:#000000;
+  width:688rpx;
+  margin:20rpx auto;
+  height:92rpx;
+  border:1rpx solid #E8E8E8;
+  background:#FFF;
+  border-radius: 8rpx;
+}
+.select_pay_type_left{
+  display:flex;
+  padding-left:36rpx;
+  align-items: center;
+}
+.wechat_select_icon{
+  width:62rpx;
+  height:52rpx;
+  padding-right:30rpx;
+}
+.select_pay_type_right{
+  padding-right:32rpx;
+  padding-top: 10rpx;
+  width:70rpx;
+  height:70rpx;
+}
+.shadow{
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:10;
+  position:fixed;
+  background:#000;
+  opacity: 0.3;
+}      

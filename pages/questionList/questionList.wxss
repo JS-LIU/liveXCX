@@ -1,0 +1,14 @@
+/* pages/questionList/questionList.wxss */
+.title{
+  padding:40rpx 40rpx;
+  color:#000000;
+  font-size:28rpx;
+}
+.answer{
+  color:#808080;
+  font-size:24rpx;
+  padding:0 40rpx;
+}
+.wrap{
+  padding-bottom:10rpx;
+}

@@ -1,6 +1,11 @@
 .owned_course_icon{
   width:36rpx;
   height:36rpx;
+  display:flex;
+  align-self:baseline;
+  flex-shrink: 0;
+
+  padding-top:0.2rem;
 }
 .owned_course_title{
   font-size:32rpx;

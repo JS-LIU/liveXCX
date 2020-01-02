@@ -1,0 +1,146 @@
+.my_prefit_header{
+  height:448rpx;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position:relative;
+}
+.my_perfit_detail{
+  position:relative;
+  z-index: 2;
+}
+.my_prefit_title{
+  margin:44rpx 0 0 60rpx;
+  font-size:24rpx;
+
+}
+.my_prefit_account{
+  margin:24rpx 0 0 60rpx;
+  font-size:80rpx;
+}
+
+.my_prefit_warning{
+  font-size:24rpx;
+  margin:30rpx 0 0 60rpx;
+}
+.my_invite_info{
+  height:138rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding:0 30rpx;
+}
+.my_invite_info_item{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height:76rpx;
+}
+.my_invite_info_item_num{
+  font-size:32rpx;
+}
+.my_invite_info_item_title{
+  font-size:24rpx;
+}
+.recommend_info{
+  height:304rpx;
+  border-bottom: 1rpx solid #FAFAFA;
+}
+.user_info{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:34rpx 0 0 36rpx;
+}
+.cash_left{
+  display:flex;
+  flex-direction: row;
+}
+.cash_right{
+  font-size:24rpx;
+  color:#61BF55;
+  padding-right:30rpx;
+}
+
+.recommend_name_title{
+  font-size:24rpx;
+  color:#000000;
+}
+.recommend_phone{
+  font-size:24rpx;
+  color:#FFC200;
+}
+.invite_user_bar{
+  position:relative;
+  width:632rpx;
+  height:92rpx;
+  margin:0 auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.recommend_info_text_box{
+  width:680rpx;
+  margin:8rpx auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size:24rpx;
+}
+.invite_dot_info{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:120rpx;
+}
+
+.dot{
+  width:53rpx;
+  height:50rpx;
+}
+
+.over_line{
+  background:#FFC200;
+  width:242rpx;
+  height:12rpx;
+}
+.invite_bottom_text{
+  font-size:24rpx;
+  color:#000000;
+}
+.line{
+  background:#E8E8E8;
+  width:242rpx;
+  height:12rpx;
+}
+.perfit_header_img{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+}
+.recommend_info_line{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no_prefit{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.no_prefit_img{
+  width:100rpx;
+  height:112rpx;
+  margin-top:150rpx;
+}
+.no_prefit_text{
+  font-size:24rpx;
+  color:#979797;
+  padding-top:20rpx;
+}

@@ -1,30 +1,29 @@
 <import src="../template/courseNameTemp"/>
 <import src="../template/courseTimeTemp"/>
+<import src="../template/teacherTemp"/> 
 
 <view class="wrap"></view>
 <view class="content">
-  <scroll-view scroll-y bindscrolltolower="{{updateOwnedCourseList}}" class="owned_course_list">
-    <navigator url="/pages/myCourse/myCourse?id={{ownedCourse.id}}" class="owned_course" wx:for="{{ownedCourseList}}" wx:for-index="i" wx:for-item="ownedCourse" wx:key="i">
-      <template is="course_name" data="{{ownedCourse}}"></template> 
-      <template is="course_time" data="{{ownedCourse}}"></template>
+  <scroll-view wx:if="{{!isShowLogin}}" wx:if="{{ownedCourseList.length!=0}}" scroll-y bindscrolltolower="updateOwnedCourseList" class="owned_course_list">
+    <navigator url="/pages/myCourse/myCourse?goodNo={{ownedCourse.goodNo}}" class="owned_course" wx:for="{{ownedCourseList}}" wx:for-index="i" wx:for-item="ownedCourse" wx:key="i">
+      <template is="course_name" data="{{...ownedCourse}}"></template> 
+      <template is="course_time" data="{{...ownedCourse}}"></template>
       <view class="teacher_list">
-        <view class="teacher_item">
-          <image src="{{ownedCourse.teacherInfo.headImgUrl}}" class="teacher_header" mode="aspectFit"></image>
-          <view class="teacher_info">
-            <view>主讲</view>
-            <view class="teacher_name">{{ownedCourse.teacherInfo.teacherName}}</view>
-          </view>
-        </view>
-        <view class="teacher_item">
-          <image src="{{ownedCourse.assistantInfo.headImgUrl}}" class="teacher_header" mode="aspectFit"></image>
-          <view class="teacher_info">
-            <view>助教</view>
-            <view class="teacher_name">{{ownedCourse.assistantInfo.teacherName}}</view>
-          </view>
-        </view>
+        <template is="teacher_info" data="{{...ownedCourse.teacherInfo,title:'主讲'}}"></template>
+        <template is="teacher_info" data="{{...ownedCourse.assistantInfo,title:'助教'}}"></template>
       </view>
     </navigator>
   </scroll-view>
+  <view wx:if="{{isShowLogin}}" class="to_login_view">
+    <image src="../img/no_order.png" mode="aspectFit" class="to_login_bg"></image>
+    <view class="no_course_text">请登录后选课</view>
+    <navigator url="/pages/login/login" class="to_login_btn">去登录</navigator>
+  </view>
+  <view wx:if="{{ownedCourseList.length == 0 && !isShowLogin}}" class="to_login_view">
+    <image src="../img/no_order.png" mode="aspectFit" class="to_login_bg"></image>
+    <view class="no_course_text">暂无课程</view>
+    <view bindtap="toSelectCenter" class="to_login_btn">选课中心</view>
+  </view>
 </view>
 
 

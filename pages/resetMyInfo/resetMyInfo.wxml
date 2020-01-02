@@ -1,0 +1,52 @@
+<view class="wrap"></view>
+<view class="reset_user_info_list">
+  <view class="reset_user_info_item">
+    <view class="reset_user_info_item_title">真实姓名：</view>
+    <view>
+      <input bindinput="bindChangeUserName" class="user_name" placeholder="{{userName}}" value="{{userName}}"></input>
+    </view>
+  </view>
+  <picker bindchange="bindChangeSex" value="{{activeSex}}" range="{{sex}}" class="reset_user_info_item">
+    <view class="picker">
+      <view class="reset_user_info_item_title">性别：</view>
+      <view>{{sex[activeSex]}}</view>    
+    </view>
+  </picker>
+  <picker mode="date" value="{{date}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange" class="reset_user_info_item">
+    <view class="picker">
+      <view class="reset_user_info_item_title">生日：</view>
+      <view>{{birthDay}}</view>    
+    </view>
+  </picker>
+  <picker bindchange="bindChangeGrade" value="{{activeGrade}}" range="{{grade}}" class="reset_user_info_item">
+    <view class="picker">
+      <view class="reset_user_info_item_title">年级：</view>
+      <view>{{grade[activeGrade]}}</view>  
+    </view>
+  </picker>
+</view>
+
+
+
+<!-- <view class="address_info">
+  <view class="address_control">地址管理</view>
+  <view class="reset_user_info_item">
+    <view class="reset_user_info_item_title">姓名：</view>
+    <view>
+      <input placeholder="{{receive_user_name}}" bindinput="bindChangeReceiveName"></input>
+    </view>
+  </view>
+  <view class="reset_user_info_item">
+    <view class="reset_user_info_item_title">电话：</view>
+    <view>
+      <input placeholder="{{receive_user_phone}}" bindinput="bindChangeReceivePhoneNum"></input>
+    </view>
+  </view>
+  <view class="reset_user_info_item">
+    <view class="reset_user_info_item_title">地址：</view>
+    <view>
+      <input placeholder="{{receive_user_address}}" bindinput="bindChangeReceiveAddress"></input>
+    </view>
+  </view>
+</view> -->
+<view class="save_user_info" bindtap="onSaveUserInfo">保存信息</view>

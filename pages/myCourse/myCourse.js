@@ -16,18 +16,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
-    this.courseItemId = options.id;
+    console.log(options.goodNo)
+    this.goodNo = options.goodNo;
     let coursePlanItemModuleList = [];
-    courseService.getOwnedCourseDetail(this.courseItemId).then((ownedCourse) => {
+    courseService.getOwnedCourseDetail(this.goodNo).then((ownedCourse) => {
+      this.ownedCouser = ownedCourse;
       let ownedCourseModule = ownedCourse.getModule.before((repairParam) => {
         repairParam = repairParam || {};
-        repairParam.startTime = ownedCourse.courseInfo.getStartTimeToShow("unix");
-        repairParam.endTime = ownedCourse.courseInfo.getEndTimeToShow("unix");
+        repairParam.startTime = ownedCourse.courseInfo.getStartTimeToShow("common");
+        repairParam.endTime = ownedCourse.courseInfo.getEndTimeToShow("common");
       }).call(ownedCourse, {});
       console.log("ownedCourseModule:",ownedCourseModule)
       
-      let coursePlanItemList = courseService.getOwnedCoursePlanItemListByDetail(this.courseItemId);
+      let coursePlanItemList = courseService.getOwnedCoursePlanItemListByDetail(this.goodNo);
+      console.log("coursePlanItemList", coursePlanItemList);
       for (let i = 0; i < coursePlanItemList.length;i++){
         coursePlanItemModuleList.push(coursePlanItemList[i].getModule.before((repairParam) => {
           repairParam.startTime = coursePlanItemList[i].coursePlanItem.getShowTime("unix");
@@ -39,6 +41,7 @@ Page({
         coursePlanItemModuleList: coursePlanItemModuleList
       });
     });
+    
 
   },
 
@@ -89,5 +92,36 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  bindReadCourseWare: function (e){
+    let coursePlanItemId = e.currentTarget.dataset.coursePlanItemId;
+    let coursePlanItem = this.ownedCouser.findCoursePlanItemByCoursePlanItemId(coursePlanItemId);
+    courseService.getLectureNotes(coursePlanItem.coursePlanItem).then((data)=>{
+      coursePlanItem.coursePlanItem.lectureNotes.setUrl(data.urlPath);
+      let url = '/pages/lecture/lecture?goodNo=' + this.ownedCouser.courseInfo.goodNo+'&coursePlanItemId='+coursePlanItemId;
+      wx.navigateTo({
+        url: url,
+      });
+    });
+
+  },
+  bindHomeworkComment: function (e){
+    console.log("coursePlanItem", e.currentTarget.dataset.coursePlanItemId);
+    let coursePlanItemId = e.currentTarget.dataset.coursePlanItemId;
+    let coursePlanItem = this.ownedCouser.findCoursePlanItemByCoursePlanItemId(coursePlanItemId);
+    console.log("homework==:",coursePlanItem.coursePlanItem.homework);
+    if (coursePlanItem.coursePlanItem.homework.homeworkDownloadStatus === 1 || coursePlanItem.coursePlanItem.homework.homeworkDownloadStatus === 2){
+      let url = '/pages/showHomework/showHomework?goodNo=' + this.ownedCouser.courseInfo.goodNo + '&coursePlanItemId=' + coursePlanItemId;
+      wx.navigateTo({
+        url: url,
+      })
+    }
+  },
+  onNavigateToStudyReporter:function(e){
+    let url = "/pages/studyReporterList/studyReporterList?goodNo=" + this.goodNo
+        wx.navigateTo({
+          url: url,
+        })
+       
   }
 })

@@ -1,0 +1,64 @@
+<view class="my_prefit_header">
+  <image src="../img/perfit_header.png" mode="aspectFill" class="perfit_header_img"></image>
+  <view class="my_perfit_detail">
+    <view>
+      <view class="my_prefit_title">可用余额</view>
+      <view class="my_prefit_account">￥{{prefit.account}}</view>
+      <view class="my_prefit_warning">现金红包可用于购买课程</view>
+    </view>
+    <view class="my_invite_info">
+      <view class="my_invite_info_item">
+        <view class="my_invite_info_item_num">{{prefit.hasRegistnum}}</view>
+        <view class="my_invite_info_item_title">已注册</view>
+      </view>
+      <view class="my_invite_info_item">
+        <view class="my_invite_info_item_num">{{prefit.hasBoughtNum}}</view>
+        <view class="my_invite_info_item_title">已购课</view>
+      </view>
+      <view class="my_invite_info_item">
+        <view class="my_invite_info_item_num">{{prefit.hasScoreNum}}</view>
+        <view class="my_invite_info_item_title">活动达标</view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+<view wx:if="{{prefit.suggestInfoList.length > 0}}" class="recommend_info" wx:for="{{prefit.suggestInfoList}}" wx:for-index="i" wx:for-item="userInfoItem" wx:key="i">
+  <view class="user_info">
+    <view class="cash_left"> 
+      <view class="recommend_name_title">被推荐人：</view>
+      <view class="recommend_phone">{{userInfoItem.phone}}</view>
+    </view>
+    
+    <view class="cash_right" wx:if="{{userInfoItem.cash&&userInfoItem.cash != 0}}">{{userInfoItem.cash /100}}元现金红包已发放</view>
+  </view>
+  <view class="invite_user_bar">
+    
+    <image src="../img/progress_invite_icon.png" mode="aspectFit" class="dot" wx:if="{{userInfoItem.registDate}}"></image>
+    <image src="../img/progress_invite_icon_no.png" mode="aspectFit" class="dot" wx:if="{{!userInfoItem.registDate}}"></image>
+    <view class="{{userInfoItem.boughtDate?'over_line':'line'}}"></view>
+    <image src="../img/progress_invite_icon.png" mode="aspectFit" class="dot" wx:if="{{userInfoItem.boughtDate}}"></image>
+    <image src="../img/progress_invite_icon_no.png" mode="aspectFit" class="dot" wx:if="{{!userInfoItem.boughtDate}}"></image>
+    <view class="{{userInfoItem.scoreDate?'over_line':'line'}}"></view>
+    <image src="../img/progress_invite_icon.png" mode="aspectFit" class="dot" wx:if="{{userInfoItem.scoreDate}}"></image>
+    <image src="../img/progress_invite_icon_no.png" mode="aspectFit" class="dot" wx:if="{{!userInfoItem.scoreDate}}"></image>
+  </view>
+  <view class="recommend_info_text_box">
+    <view class="recommend_info_line">
+      <view>已注册</view>
+      <view wx:if="{{userInfoItem.registDate}}">{{userInfoItem.showRegistD}}</view>
+    </view>
+    <view class="recommend_info_line">
+      <view>已购课</view>
+      <view wx:if="{{userInfoItem.boughtDate}}">{{userInfoItem.showBoughtD}}</view>
+    </view>
+    <view class="recommend_info_line">
+      <view>活动达标</view>
+      <view wx:if="{{userInfoItem.scoreDate}}">{{userInfoItem.showScoreD}}</view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{prefit.suggestInfoList.length == 0}}" class="no_prefit">
+  <image src="../img/no_prefit.png" mode="aspectFit" class="no_prefit_img"></image>
+  <view class="no_prefit_text">暂无推荐记录</view>
+</view>

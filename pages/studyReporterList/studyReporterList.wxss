@@ -1,0 +1,75 @@
+.wrap{
+  background:#FAFAFA;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+}
+.content{
+  position:relative;
+  
+}
+.study_reporter_title{
+  height: 144rpx;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  background:#FFFFFF;
+
+
+  box-shadow:0 6rpx 20rpx 0 rgba(225,225,225,0.5);
+}
+.reporter_course_item{
+  width:690rpx;
+  height:160rpx;
+
+  margin:40rpx auto 0;
+
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  background:#FFFFFF;
+  box-shadow:0px 6px 20px 0px rgba(225,225,225,0.5);
+  border-radius:8px;
+}
+.reporter_course_left{
+  display:flex;
+  align-items: center;
+
+  height: 84rpx;
+
+  padding-left: 42rpx;
+}
+.reporter_course_icon{
+  width:62rpx;
+  height:70rpx;
+}
+.reporter_course_info{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 84rpx;
+  padding-left:34rpx;
+}
+.reporter_course_index{
+  font-size:20rpx;
+  color:#808080;
+}
+.reporter_course_name{
+  font-size:32rpx;
+  color:#000000;
+}
+.reporter_course_time{
+  align-self: flex-end;
+  font-size:20rpx;
+  color:#808080;
+
+  padding:0 28rpx 44rpx 0;
+}

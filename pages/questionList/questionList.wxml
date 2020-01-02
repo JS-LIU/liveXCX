@@ -1,0 +1,36 @@
+<!--pages/questionList/questionList.wxml-->
+<view class="wrap">
+  <view class="title">Q1、课程是什么形式的？</view>
+<view class="answer">上课形式是线上真人直播的授课模式</view>
+<view class="title">Q2.错过直播怎么办？</view>
+<view class="answer">可以看视频回放，回放过程中有任何问题可以微信，或电话联系班主任老师</view>
+<view class="title">Q3.每次课多长时间？</view>
+<view class="answer">每次课时是1小时左右</view>
+<view class="title">Q4、对设备有什么要求吗？</view>
+<view class="answer">笔记本或台式机都是支持的，电脑建议是 Windows 系统电脑，win7以上都可以，暂不支持XP，MAC</view>
+<view class="title">Q5、老师会给孩子点评作业吗？</view>
+<view class="answer">孩子学习完之后，会进行相应的课后练习，教研老师会1对1批改作业。</view>
+<view class="title">Q6.学习编程，对爸爸妈妈有什么要求吗？</view>
+<view class="answer">需要有家长微信。我们会在班级群通知上课，也会对孩子完成作业
+情况进行点评，便于家长实时掌握孩子学习进度。</view>
+<view class="title">Q9.为什么孩子要学习编程？</view>
+<view class="answer">1、孩子不再沉迷动画片和游戏</view>
+<view class="answer">学编程，让孩子从体验者变为开发者，站在更高的视角看问
+题，不再停留在看和玩。</view>
+<view class="answer">2、提高孩子逻辑能力和学习主动性</view>
+<view class="answer">逻辑顺畅，程序才会运行，良好的程序运行又会提升孩子的
+成就感，良性循环之下，让孩子爱上学习。</view>
+<view class="answer">3、孩子做事粗心、不认真，缺乏学习主动性</view>
+<view class="answer">孩子需要认真编写和检查，程序才会如期运行；良好运行的
+程序又会提升孩子的成就感；良性循环之下，自然而然变得
+细心，认真，主动。</view>
+<view class="answer">4、渴望提升孩子未来竞争力</view>
+<view class="answer">编程是通向未来的语言，跟上国家教育改革大趋势，直通好
+学校、好工作</view>
+<view class="title">Q2、孩子未来不打算从事IT行业，为什么还要学习编程？</view>
+<view class="answer">编程和阅读、表达、数学等一样，是孩子以后学习工作的基
+础技能。未来是人工智能时代，没有创造力的工作，都将被机器所取代。学习编程可以提高孩子的创新能力，拥有编程能力的孩子在职场上更具备核心竞争力，更能适应千变万化的未来。</view>
+<view class="title">Q8..遇到问题如何解决</view>
+<view class="answer">孩子上课过程中遇到问题，可以在讨论区向老师提问，
+同时每位孩子都有专属的班主任老师陪同孩子一起学习，有问题随时提问即可 </view>
+</view>
